@@ -30,5 +30,15 @@
 <h2>Send a cheep</h2>
 <!-- TODO: add form with a name and message field:
      on submit POST the data to /cheep -->
-
+<form>
+  <div class="form-group">
+    <label for="name">Username</label>
+    <input type="text" class="form-control" id="name" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="message">Your cheep!</label>
+    <input type="text" class="form-text" id="message" placeholder="Your message here">
+  </div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {% endblock %}
