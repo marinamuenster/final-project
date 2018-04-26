@@ -15,7 +15,7 @@ function getData(){
 	$("#temp_gauge").attr("data-value",weather.indoor_temp)
     });
 }
-
+//runs as soon as document is ready
 $(function(){
     setInterval(getData,1000);
 })
