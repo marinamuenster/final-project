@@ -1,5 +1,6 @@
 import random
 import json
+import requests
 from flask import (Flask,
                    request,
                    url_for,
@@ -14,11 +15,24 @@ def home():
 @app.route("/data.json")
 def data():
     # TODO read temperature and humidity from Arduino
-    indoor_temp = random.randint(60,80)
-    indoor_humidity = random.random()
-    # TODO read temperature and humidity from openweathermap.org
-    outdoor_temp = random.randint(30,50)
-    outdoor_humidity = random.random()
+    s = serial.Serial("/dev/ttyACM0")  
+    l = s.readline() 
+    #check to see if l is x's and print errors (print ???)
+    if(l == "X"):
+	indoor_temp == "???"
+	indoor_humidity == "???"
+    else:
+        x = l.rstrip().split(",")
+        indoor_temp = x[0]
+        indoor_humidity = x[1]
+	
+    # read temperature and humidity from openweathermap.org
+    r = request.get("http://api.openweathermap.org/data/2.5/"+
+		    "weather?id=4347242&units=imperial&"+
+		    "APPID=09f303a8a7a78820feda94e4d2ee47d6")
+    data = r.json()
+    outdoor_temp = data['main']['temp']
+    outdoor_humidity = data['main']['humidity']
     # send the result as JSON
     return json.dumps({
         "indoor_temp": indoor_temp,
