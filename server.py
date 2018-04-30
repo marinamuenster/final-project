@@ -54,8 +54,9 @@ def cheep():
     return render_template('thankyou.html')
 
 
-
-
+@app.route("/thankyou")
+def thankyou():
+    return render_template('thankyou.html')
 
 
 
