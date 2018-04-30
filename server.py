@@ -16,7 +16,7 @@ def home():
 @app.route("/data.json")
 def data():
     # read temperature and humidity from Arduino
-    s = serial.Serial("/dev/ttyACM0")  
+    s = serial.Serial("/dev/ttyACM1")  
     l = s.readline() 
     # check to see if l is x's and print errors 
     x = l.rstrip().split(",")
