@@ -53,7 +53,7 @@ def cheep():
     file.write(newMsg)
     file.close()
     # display the cheep on the kit LCD
-    s = serial.Serial("/dev/ttyACM0")  
+    s = serial.Serial("/dev/ttyACM1")  
     s.write(name)
     s.write(message)
     
