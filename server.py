@@ -47,12 +47,12 @@ def cheep():
     name = request.form['name']
     message = request.form['message']
     print("got a cheep from [%s]: %s" % (name,message))
-    # TODO: append [name: message] to a file of cheeps
+    # append [name: message] to a file of cheeps
     newMsg = name + ": " + message + "/r/n"
     file = open("/cheep.txt","a")
     file.write(newMsg)
     file.close()
-    # TODO: display the cheep on the kit LCD
+    # display the cheep on the kit LCD
     s = serial.Serial("/dev/ttyACM0")  
     s.write(name)
     s.write(message)

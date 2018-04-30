@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<!-- TODO: style with boostrap -->
+<!-- style with boostrap -->
 
 <div class="row">
   <div class="col-4">
@@ -17,14 +17,19 @@
       <li> The outdoor temperature is <b id="outdoor_temp">??</b> </li>
       <li> The outdoor humidity is <b id="outdoor_humidity">??</b> </li>
     </ul>
+  </div>
+</div>
 
 <!-- see https://canvas-gauges.com/documentation/examples/ -->
+<div class="row">
+  <div class="col-4">
     <canvas
       id="indoor_temp_gauge"
       data-type="linear-gauge"
       data-min-value="0"
       data-max-value="100"
       data-width="100"
+      data-title="Indoor Temperature"
       data-height="500"
       data-unit="°C"
       data-border="blue"
@@ -33,19 +38,6 @@
       data-animation-duration="500"
       ></canvas>
 
-    <canvas
-      id="outdooor_temp_gauge"
-      data-type="linear-gauge"
-      data-min-value="0"
-      data-max-value="100"
-      data-width="100"
-      data-height="500"
-      data-unit="°C"
-      data-border="blue"
-      data-color-needle="blue"
-      data-animation-rule="elastic"
-      data-animation-duration="500"
-      ></canvas>
 
     <canvas
       id="indoor_humidity_gauge"
@@ -64,13 +56,34 @@
       data-font-value="Led"
       data-animated-value="true"
     ></canvas>
+  </div>
+
+
+
+  <div class="col-4">
+    <canvas
+      id="outdooor_temp_gauge"
+      data-type="linear-gauge"
+      data-min-value="0"
+      data-max-value="100"
+      data-width="100"
+      data-height="500"
+      data-title= "Outdoor Temperature"
+      data-unit="°C"
+      data-border="blue"
+      data-color-needle="blue"
+      data-animation-rule="elastic"
+      data-animation-duration="500"
+      ></canvas>
+
+    
 
     <canvas
       id="outdoor_humidity_gauge"
       data-type="radial-gauge"
       data-width="200"
       data-height="200"
-      data-title="Outdoor Humidity"
+      data-title= "Outdoor Humidity"
       data-min-value="0"
       data-max-value="100"
       data-major-ticks="0,10,20,30,40,50,60,70,80,90,100"
@@ -86,8 +99,8 @@
 </div>
 
 
-<h2>Send a cheep</h2>
-<!-- TODO: add form with a name and message field:
+<h3>Send a cheep</h3>
+<!-- add form with a name and message field:
      on submit POST the data to /cheep -->
 <form method="POST" action="/cheep">
   <div class="form-group">
@@ -98,6 +111,6 @@
     <label for="message">Your cheep!</label>
     <input type="text" class="form-text" id="message" placeholder="Your message here">
   </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<a href="http://localhost:5000/thankyou" class="btn btn-primary" role="button">Submit</a>
 </form>
 {% endblock %}
