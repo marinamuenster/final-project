@@ -15,8 +15,8 @@ function getData(){
 	
 	$("#indoor_temp_gauge").attr("data-value",weather.indoor_temp)
 	$("#outdoor_temp_gauge").attr("data-value",weather.outdoor_temp)
-	$("#indoor_humidity_gauge").attr("data-value",weather.outdoor_temp)
-	$("#outdoor_humidity_gauge").attr("data-value",weather.outdoor_temp)
+	$("#indoor_humidity_gauge").attr("data-value",weather.indoor_humidity)
+	$("#outdoor_humidity_gauge").attr("data-value",weather.outdoor_humidity)
     });
 }
 //runs as soon as document is ready

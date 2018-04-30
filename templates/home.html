@@ -2,7 +2,6 @@
 {% block body %}
 
 <!-- style with boostrap -->
-
 <div class="row">
   <div class="col-4">
     <h2>The current conditions: </h2>
@@ -16,12 +15,15 @@
       <li> The indoor humidity is <b id="indoor_humidity">??</b> </li>
       <li> The outdoor temperature is <b id="outdoor_temp">??</b> </li>
       <li> The outdoor humidity is <b id="outdoor_humidity">??</b> </li>
+      <b>*Note: Outdoor temperature is in °F while indoor temperature is in °C*</b>
     </ul>
   </div>
 </div>
 
 <!-- see https://canvas-gauges.com/documentation/examples/ -->
+
 <div class="row">
+ 
   <div class="col-4">
     <canvas
       id="indoor_temp_gauge"
@@ -62,14 +64,14 @@
 
   <div class="col-4">
     <canvas
-      id="outdooor_temp_gauge"
+      id="outdoor_temp_gauge"
       data-type="linear-gauge"
       data-min-value="0"
       data-max-value="100"
       data-width="100"
       data-height="500"
       data-title= "Outdoor Temperature"
-      data-unit="°C"
+      data-unit="°F"
       data-border="blue"
       data-color-needle="blue"
       data-animation-rule="elastic"
