@@ -1,0 +1,7 @@
+With cheep handling, the main area of difficulty was in figuring out how to send the data written in the cheeps.txt or /cheeps file over the serial connection so that it could be written onto the LCD screen. 
+
+The attempt you can see works by sending the name and message variables in server.py over the serial connection using s.write(), and then having the arduino loop be constantly checking for bytes available to read those into a buffer that would then print the name and message into the correct part of the LCD screen. 
+
+Another thought was given to creating an onclick=function that would cause whatever was in the form when it was clicked to be sent over the serial port. That thought was abandoned because it seemed overly complex. 
+
+
